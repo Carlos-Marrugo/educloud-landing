@@ -1,7 +1,9 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, GraduationCap, School } from "lucide-react"
+
+const LINKEDIN_URL =
+  "https://www.linkedin.com/company/educloud-system/?viewAsMember=true"
 
 export function Hero() {
   return (
@@ -15,15 +17,12 @@ export function Hero() {
       </div>
 
       <div className="mx-auto max-w-4xl text-center">
-        <div className="mb-8 flex justify-center">
-          <Image
-            src="/images/logo.png"
-            alt="EduCloud System logo"
-            width={120}
-            height={120}
-            className="h-28 w-28 object-contain md:h-32 md:w-32"
-            priority
-          />
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+          </span>
+          En desarrollo activo
         </div>
 
         <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
@@ -38,15 +37,27 @@ export function Hero() {
           calificaciones hasta pagos, asistencia y aulas virtuales.
         </p>
 
+        <div className="mt-8 flex items-center justify-center gap-6 text-sm text-muted-foreground">
+          <span className="inline-flex items-center gap-2">
+            <GraduationCap className="h-4 w-4 text-primary" />
+            Universidades
+          </span>
+          <span className="h-4 w-px bg-border" />
+          <span className="inline-flex items-center gap-2">
+            <School className="h-4 w-4 text-primary" />
+            Colegios
+          </span>
+        </div>
+
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button size="lg" asChild>
-            <Link href="#features">
-              Conoce el producto
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+              Solicitar Demo
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </a>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <Link href="#team">Nuestro equipo</Link>
+            <Link href="#team">Conoce al equipo</Link>
           </Button>
         </div>
       </div>

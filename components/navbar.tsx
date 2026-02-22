@@ -6,6 +6,9 @@ import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+const LINKEDIN_URL =
+  "https://www.linkedin.com/company/educloud-system/?viewAsMember=true"
+
 const navLinks = [
   { label: "Inicio", href: "#hero" },
   { label: "Producto", href: "#features" },
@@ -47,7 +50,9 @@ export function Navbar() {
 
         <div className="hidden md:block">
           <Button asChild>
-            <Link href="#contact">Contactar</Link>
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+              Solicitar Demo
+            </a>
           </Button>
         </div>
 
@@ -77,9 +82,14 @@ export function Navbar() {
           </ul>
           <div className="mt-4">
             <Button className="w-full" asChild>
-              <Link href="#contact" onClick={() => setMobileOpen(false)}>
-                Contactar
-              </Link>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+              >
+                Solicitar Demo
+              </a>
             </Button>
           </div>
         </div>
