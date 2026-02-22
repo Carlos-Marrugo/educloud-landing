@@ -2,13 +2,13 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Menu, X, Cloud } from "lucide-react"
+import Image from "next/image"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { label: "Inicio", href: "#hero" },
   { label: "Producto", href: "#features" },
-  { label: "Arquitectura", href: "#architecture" },
   { label: "Equipo", href: "#team" },
   { label: "Contacto", href: "#contact" },
 ]
@@ -18,9 +18,15 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-2">
-          <Cloud className="h-7 w-7 text-primary" />
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image
+            src="/images/logo.png"
+            alt="EduCloud System logo"
+            width={40}
+            height={40}
+            className="h-10 w-10 object-contain"
+          />
           <span className="text-xl font-bold tracking-tight text-foreground">
             Edu<span className="text-primary">Cloud</span>
           </span>
@@ -41,7 +47,7 @@ export function Navbar() {
 
         <div className="hidden md:block">
           <Button asChild>
-            <Link href="#contact">Solicitar Demo</Link>
+            <Link href="#contact">Contactar</Link>
           </Button>
         </div>
 
@@ -72,7 +78,7 @@ export function Navbar() {
           <div className="mt-4">
             <Button className="w-full" asChild>
               <Link href="#contact" onClick={() => setMobileOpen(false)}>
-                Solicitar Demo
+                Contactar
               </Link>
             </Button>
           </div>

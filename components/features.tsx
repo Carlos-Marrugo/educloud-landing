@@ -14,49 +14,49 @@ const features = [
     icon: BookOpen,
     title: "Gestion Academica",
     description:
-      "Administra facultades, programas, materias, grados y secciones. Compatible con universidades y colegios.",
+      "Organiza facultades, programas, materias, grados y secciones. Adaptable tanto a universidades como a colegios.",
   },
   {
     icon: ClipboardList,
-    title: "Matriculas Inteligentes",
+    title: "Matriculas",
     description:
-      "Matricula por materias/creditos en universidades o por ano escolar en colegios. Validacion de prerrequisitos y cupos.",
+      "Proceso de matricula digital: por materias y creditos en universidades, o por ano escolar completo en colegios.",
   },
   {
     icon: CreditCard,
-    title: "Pagos Integrados",
+    title: "Pagos en Linea",
     description:
-      "Integracion con MercadoPago, generacion de recibos PDF, becas, descuentos y auditorias financieras completas.",
+      "Los estudiantes y padres pueden pagar matriculas y mensualidades en linea, con recibos automaticos y seguimiento de pagos.",
   },
   {
     icon: Video,
     title: "Aulas Virtuales",
     description:
-      "Clases en vivo con WebRTC, grabacion de sesiones, materiales, tareas y control de asistencia virtual.",
+      "Clases en vivo, grabaciones, materiales de estudio y entrega de tareas, todo integrado en la plataforma.",
   },
   {
     icon: QrCode,
-    title: "Acceso por QR",
+    title: "Control de Acceso QR",
     description:
-      "Codigo QR dinamico por persona, registro de entrada/salida, validacion de matricula y notificaciones a padres.",
+      "Cada estudiante y docente tiene un codigo QR para registrar su entrada y salida de la institucion de forma rapida y segura.",
   },
   {
     icon: Bell,
     title: "Notificaciones",
     description:
-      "Emails automaticos de notas, ausencias, pagos pendientes y circulares institucionales. Integrado con SendGrid.",
+      "Correos automaticos de notas publicadas, ausencias, pagos pendientes y comunicados institucionales.",
   },
   {
     icon: FileText,
     title: "Documentos y Reportes",
     description:
-      "Genera certificados, constancias, boletines y reportes academicos/financieros exportables a PDF, CSV y Excel.",
+      "Genera certificados, constancias de estudio, boletines de notas y reportes academicos listos para descargar.",
   },
   {
     icon: Shield,
-    title: "Control Disciplinario",
+    title: "Seguimiento de Convivencia",
     description:
-      "Registro de incidentes, clasificacion de faltas, sanciones, reconocimientos positivos e historial completo.",
+      "Registro de incidentes, reconocimientos positivos e historial de comportamiento para colegios.",
   },
 ]
 
@@ -72,8 +72,8 @@ export function Features() {
             Todo lo que tu institucion necesita
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Una suite completa de herramientas construida con arquitectura de
-            microservicios para escalar con tu institucion.
+            Una plataforma integral disenada para adaptarse a las necesidades
+            de universidades y colegios por igual.
           </p>
         </div>
 

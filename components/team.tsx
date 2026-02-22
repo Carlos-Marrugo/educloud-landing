@@ -1,15 +1,32 @@
 import Image from "next/image"
 import { Github, Linkedin } from "lucide-react"
 
-const teamMembers = [
+interface TeamMember {
+  name: string
+  role: string
+  image: string
+  description: string
+  contributions: string[]
+  stack: string
+  github: string
+  linkedin: string
+}
+
+const backendTeam: TeamMember[] = [
   {
     name: "Carlos",
-    role: "Founder & Product Architect",
+    role: "Founder & Product Lead",
     image: "/images/team/carlos.jpg",
     description:
-      "Creador de la vision de EduCloud. Lidera la arquitectura del producto, la infraestructura cloud y el diseno de los servicios core del sistema. Responsable de Institutions, User Profile, Enrollment y la infraestructura completa.",
-    services: ["Institutions", "User Profile", "University Enrollment", "School Enrollment", "Infraestructura"],
-    stack: "Spring Boot",
+      "Creador de EduCloud. Impulsa la vision del producto, define la arquitectura general del sistema y coordina al equipo. Ademas de liderar, contribuye directamente en el desarrollo de los servicios core de la plataforma.",
+    contributions: [
+      "Vision del producto",
+      "Instituciones",
+      "Perfiles de usuario",
+      "Matriculas",
+      "Infraestructura",
+    ],
+    stack: "Spring Boot + JPA",
     github: "#",
     linkedin: "#",
   },
@@ -18,9 +35,15 @@ const teamMembers = [
     role: "Backend Developer & DevOps",
     image: "/images/team/brayan.jpg",
     description:
-      "Especialista en NestJS y servicios de integracion. Construye los servicios de comunicacion, acceso y control operativo que mantienen la plataforma conectada en tiempo real.",
-    services: ["API Gateway", "Notifications", "QR Access", "Discipline", "Attendance"],
-    stack: "NestJS",
+      "Especialista en servicios de integracion y operaciones. Construye los servicios que mantienen la plataforma conectada: desde la puerta de entrada al sistema hasta notificaciones, control de acceso y asistencia.",
+    contributions: [
+      "API Gateway",
+      "Notificaciones",
+      "Acceso QR",
+      "Disciplina",
+      "Asistencia",
+    ],
+    stack: "NestJS + TypeORM",
     github: "#",
     linkedin: "#",
   },
@@ -29,9 +52,14 @@ const teamMembers = [
     role: "Backend Developer & Security",
     image: "/images/team/sehuanes.jpg",
     description:
-      "Experto en autenticacion, seguridad y generacion de documentos. Disenha el sistema RBAC, la integracion con Keycloak y el motor de reportes analiticos de la plataforma.",
-    services: ["Auth Service", "Document Service", "Reporting", "Parents Service"],
-    stack: "NestJS",
+      "Responsable de la seguridad y autenticacion de toda la plataforma. Construye el sistema de roles y permisos, la generacion de documentos oficiales y el motor de reportes analiticos.",
+    contributions: [
+      "Autenticacion",
+      "Documentos",
+      "Reportes",
+      "Portal de padres",
+    ],
+    stack: "NestJS + TypeORM",
     github: "#",
     linkedin: "#",
   },
@@ -40,13 +68,133 @@ const teamMembers = [
     role: "Backend Developer & Core Systems",
     image: "/images/team/jesus.jpg",
     description:
-      "Responsable de los servicios academicos y financieros del sistema. Construye las funcionalidades criticas de pagos, aulas virtuales y el motor de calificaciones.",
-    services: ["Academic", "Payments", "Virtual Classroom", "Grades"],
-    stack: "Spring Boot",
+      "Desarrolla los servicios academicos y financieros criticos del sistema: el motor de calificaciones, el procesamiento de pagos y las aulas virtuales con clases en vivo.",
+    contributions: [
+      "Academico",
+      "Pagos",
+      "Aulas virtuales",
+      "Calificaciones",
+    ],
+    stack: "Spring Boot + JPA",
     github: "#",
     linkedin: "#",
   },
 ]
+
+const frontendTeam: TeamMember[] = [
+  {
+    name: "Naiker Gomez",
+    role: "Frontend Lead",
+    image: "/images/team/naiker.jpg",
+    description:
+      "Lidera el equipo frontend y define la arquitectura de la interfaz de usuario. Responsable de la experiencia de usuario, el sistema de diseno y la integracion con los servicios backend.",
+    contributions: [
+      "Arquitectura frontend",
+      "Sistema de diseno",
+      "Integraciones API",
+      "UX/UI",
+    ],
+    stack: "React + Next.js",
+    github: "#",
+    linkedin: "#",
+  },
+  {
+    name: "Andres Henao",
+    role: "Frontend Developer",
+    image: "/images/team/andres.jpg",
+    description:
+      "Desarrollador frontend enfocado en construir las interfaces de la plataforma. Trabaja en los modulos de usuario, dashboards y vistas academicas que conectan con los servicios del backend.",
+    contributions: [
+      "Modulos de usuario",
+      "Dashboards",
+      "Vistas academicas",
+    ],
+    stack: "React + Next.js",
+    github: "#",
+    linkedin: "#",
+  },
+  {
+    name: "Daimer",
+    role: "Frontend Developer",
+    image: "/images/team/daimer.jpg",
+    description:
+      "Desarrollador frontend que trabaja en los flujos transaccionales y operativos de la plataforma: matriculas, pagos, notificaciones y las interfaces de gestion institucional.",
+    contributions: [
+      "Flujos de matricula",
+      "Interfaz de pagos",
+      "Notificaciones UI",
+    ],
+    stack: "React + Next.js",
+    github: "#",
+    linkedin: "#",
+  },
+]
+
+function MemberCard({ member }: { member: TeamMember }) {
+  return (
+    <div className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/30 hover:shadow-xl">
+      <div className="flex flex-col items-center gap-5 p-7 sm:flex-row sm:items-start">
+        <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-2xl">
+          <Image
+            src={member.image}
+            alt={`Foto de ${member.name}`}
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="flex-1 text-center sm:text-left">
+          <h3 className="text-lg font-bold text-foreground">
+            {member.name}
+          </h3>
+          <p className="mt-0.5 text-sm font-medium text-primary">
+            {member.role}
+          </p>
+          <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+            {member.description}
+          </p>
+        </div>
+      </div>
+
+      <div className="border-t border-border bg-secondary/30 px-7 py-4">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-1.5">
+            {member.contributions.map((item) => (
+              <span
+                key={item}
+                className="inline-flex rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground">
+              {member.stack}
+            </span>
+            <a
+              href={member.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+              aria-label={`GitHub de ${member.name}`}
+            >
+              <Github className="h-5 w-5" />
+            </a>
+            <a
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+              aria-label={`LinkedIn de ${member.name}`}
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export function Team() {
   return (
@@ -60,84 +208,33 @@ export function Team() {
             Las personas detras de EduCloud
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Un equipo de 4 desarrolladores construyendo la plataforma educativa
-            del futuro con pasion y arquitectura limpia.
+            Un equipo de 7 personas construyendo desde cero la plataforma
+            educativa que universidades y colegios necesitan.
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
-          {teamMembers.map((member) => (
-            <div
-              key={member.name}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/30 hover:shadow-xl"
-            >
-              <div className="flex flex-col items-center gap-6 p-8 sm:flex-row sm:items-start">
-                <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-2xl">
-                  <Image
-                    src={member.image}
-                    alt={`Foto de ${member.name}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="flex-1 text-center sm:text-left">
-                  <h3 className="text-xl font-bold text-foreground">
-                    {member.name}
-                  </h3>
-                  <p className="mt-1 text-sm font-medium text-primary">
-                    {member.role}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {member.description}
-                  </p>
-                </div>
-              </div>
+        {/* Backend Team */}
+        <div className="mt-16">
+          <h3 className="mb-6 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+            Backend & Infraestructura
+          </h3>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {backendTeam.map((member) => (
+              <MemberCard key={member.name} member={member} />
+            ))}
+          </div>
+        </div>
 
-              <div className="border-t border-border bg-secondary/30 px-8 py-4">
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex flex-wrap gap-2">
-                    {member.services.map((service) => (
-                      <span
-                        key={service}
-                        className="inline-flex rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary"
-                      >
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span
-                      className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                        member.stack === "NestJS"
-                          ? "bg-accent/15 text-accent"
-                          : "bg-primary/15 text-primary"
-                      }`}
-                    >
-                      {member.stack}
-                    </span>
-                    <a
-                      href={member.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground transition-colors hover:text-foreground"
-                      aria-label={`GitHub de ${member.name}`}
-                    >
-                      <Github className="h-5 w-5" />
-                    </a>
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground transition-colors hover:text-foreground"
-                      aria-label={`LinkedIn de ${member.name}`}
-                    >
-                      <Linkedin className="h-5 w-5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Frontend Team */}
+        <div className="mt-14">
+          <h3 className="mb-6 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+            Frontend
+          </h3>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {frontendTeam.map((member) => (
+              <MemberCard key={member.name} member={member} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
