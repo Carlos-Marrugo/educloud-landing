@@ -21,7 +21,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5">
           <Image
             src="/images/logo.png"
@@ -66,7 +66,7 @@ export function Navbar() {
       </nav>
 
       {mobileOpen && (
-        <div className="border-t border-border bg-background px-6 pb-6 md:hidden">
+        <div className="border-t border-border bg-background px-4 pb-6 sm:px-6 md:hidden">
           <ul className="flex flex-col gap-4 pt-4">
             {navLinks.map((link) => (
               <li key={link.href}>
