@@ -14,11 +14,11 @@ interface TeamMember {
 
 const team: TeamMember[] = [
   {
-    name: "Carlos",
+    name: "Carlos Marrugo",
     role: "Founder & Product Lead",
     image: "/images/team/carlos.jpg",
-    github: "#",
-    linkedin: "#",
+    github: "https://github.com/Carlos-Marrugo",
+    linkedin: "https://www.linkedin.com/in/carlos-marrugo-701261283/",
     description:
       "Creador de EduCloud System. Impulsa la vision del producto, define la arquitectura general y coordina a todo el equipo. Ademas de liderar, contribuye directamente en el desarrollo de los servicios core de la plataforma.",
     focus: [
@@ -31,11 +31,11 @@ const team: TeamMember[] = [
     stack: "Spring Boot, JPA, PostgreSQL",
   },
   {
-    name: "Brayan",
+    name: "Brayan Garcia",
     role: "Backend Developer",
     image: "/images/team/brayan.jpg",
-    github: "#",
-    linkedin: "#",
+    github: "https://github.com/brayannu123",
+    linkedin: "https://www.linkedin.com/in/brayan-garcianu%C3%B1ez-960b45351/",
     description:
       "Especialista en servicios de integracion y operaciones. Construye los servicios que mantienen la plataforma conectada: desde la puerta de entrada al sistema hasta notificaciones, control de acceso y asistencia.",
     focus: [
@@ -48,11 +48,11 @@ const team: TeamMember[] = [
     stack: "NestJS, TypeORM, PostgreSQL",
   },
   {
-    name: "Sehuanes",
+    name: "Camilo Sehuanes",
     role: "Backend Developer",
     image: "/images/team/sehuanes.jpg",
-    github: "#",
-    linkedin: "#",
+    github: "https://github.com/Camilo-ASC",
+    linkedin: "https://www.linkedin.com/in/camilo-asc/",
     description:
       "Responsable de la seguridad y autenticacion de toda la plataforma. Construye el sistema de roles y permisos, la generacion de documentos oficiales y el motor de reportes analiticos.",
     focus: [
@@ -64,11 +64,11 @@ const team: TeamMember[] = [
     stack: "NestJS, TypeORM, PostgreSQL",
   },
   {
-    name: "Jesus",
+    name: "Jesus Castro",
     role: "Backend Developer",
     image: "/images/team/jesus.jpg",
-    github: "#",
-    linkedin: "#",
+    github: "https://github.com/Jesus-Castro10",
+    linkedin: "https://www.linkedin.com/in/jesus-castro-rodriguez",
     description:
       "Desarrolla los servicios academicos y financieros criticos del sistema: el motor de calificaciones, el procesamiento de pagos y las aulas virtuales con clases en vivo.",
     focus: [
@@ -80,11 +80,11 @@ const team: TeamMember[] = [
     stack: "Spring Boot, JPA, PostgreSQL",
   },
   {
-    name: "Naiker Gomez",
+    name: "Naiker Gòmez",
     role: "Frontend Lead",
     image: "/images/team/naiker.jpg",
-    github: "#",
-    linkedin: "#",
+    github: "https://github.com/Naiker12",
+    linkedin: "https://www.linkedin.com/in/naiker-gomez-caraballo-a97449293/",
     description:
       "Lidera el equipo frontend y define la arquitectura de la interfaz de usuario. Responsable de la experiencia de usuario, el sistema de diseno y la integracion con todos los servicios del backend.",
     focus: [
@@ -96,11 +96,11 @@ const team: TeamMember[] = [
     stack: "React, Next.js, TypeScript",
   },
   {
-    name: "Andres Henao",
+    name: "Andrès Henao",
     role: "Frontend Developer",
     image: "/images/team/andres.jpg",
-    github: "#",
-    linkedin: "#",
+    github: "https://github.com/xMajestyCz",
+    linkedin: "https://www.linkedin.com/in/andres-henao-cz/",
     description:
       "Desarrollador frontend enfocado en construir las interfaces de la plataforma. Trabaja en los modulos de usuario, dashboards y las vistas academicas que conectan con los servicios del backend.",
     focus: [
@@ -111,11 +111,11 @@ const team: TeamMember[] = [
     stack: "React, Next.js, TypeScript",
   },
   {
-    name: "Daimer",
+    name: "Daimer Saltaren",
     role: "Frontend Developer",
     image: "/images/team/daimer.jpg",
-    github: "#",
-    linkedin: "#",
+    github: "https://github.com/Dsaltaren27",
+    linkedin: "https://www.linkedin.com/in/daimer-a-saltar%C3%A9n-1a9852237/",
     description:
       "Desarrollador frontend que trabaja en los flujos transaccionales y operativos: matriculas, pagos, notificaciones y las interfaces de gestion institucional.",
     focus: [
