@@ -70,36 +70,36 @@ const features = [
 
 export function Features() {
   return (
-    <section id="features" className="bg-secondary/50 py-24 px-6">
+    <section id="features" className="bg-secondary/50 py-16 px-4 sm:py-24 sm:px-6">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">
             Producto
           </p>
-          <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="mt-3 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
             Todo lo que tu institucion necesita
           </h2>
-          <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-pretty text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
             Una plataforma integral que se adapta a universidades y colegios por igual.
             Digitaliza cada proceso academico y administrativo en un solo sistema.
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-lg"
+              className="group relative flex flex-col rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/30 hover:shadow-lg sm:p-6"
             >
-              <div className="mb-5 flex items-center justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  <feature.icon className="h-6 w-6" />
+              <div className="mb-4 flex items-center justify-between sm:mb-5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground sm:h-12 sm:w-12">
+                  <feature.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                 </div>
                 <span className="rounded-full bg-secondary px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
                   {feature.tag}
                 </span>
               </div>
-              <h3 className="text-lg font-semibold text-foreground">
+              <h3 className="text-base font-semibold text-foreground sm:text-lg">
                 {feature.title}
               </h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">

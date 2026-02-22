@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-24 pb-16"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 pt-20 pb-12 sm:px-6 sm:pt-24 sm:pb-16"
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-1/3 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
@@ -25,19 +25,19 @@ export function Hero() {
           En desarrollo activo
         </div>
 
-        <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="text-balance text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-7xl">
           Gestion educativa{" "}
           <span className="text-primary">simplificada</span>{" "}
           en la nube
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
+        <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg md:text-xl">
           EduCloud System es la plataforma que ayuda a universidades y colegios
           a digitalizar toda su operacion academica: desde matriculas y
           calificaciones hasta pagos, asistencia y aulas virtuales.
         </p>
 
-        <div className="mt-8 flex items-center justify-center gap-6 text-sm text-muted-foreground">
+        <div className="mt-6 flex items-center justify-center gap-4 text-xs text-muted-foreground sm:mt-8 sm:gap-6 sm:text-sm">
           <span className="inline-flex items-center gap-2">
             <GraduationCap className="h-4 w-4 text-primary" />
             Universidades
@@ -49,14 +49,14 @@ export function Hero() {
           </span>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button size="lg" asChild>
+        <div className="mt-8 flex w-full flex-col items-center justify-center gap-3 px-4 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4 sm:px-0">
+          <Button size="lg" className="w-full sm:w-auto" asChild>
             <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
               Solicitar Demo
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
-          <Button size="lg" variant="outline" asChild>
+          <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
             <Link href="#team">Conoce al equipo</Link>
           </Button>
         </div>

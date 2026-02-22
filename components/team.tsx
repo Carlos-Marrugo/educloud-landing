@@ -130,7 +130,7 @@ const team: TeamMember[] = [
 function TeamCard({ member }: { member: TeamMember }) {
   return (
     <div className="group flex flex-col items-center text-center">
-      <div className="relative mb-4 h-40 w-40 overflow-hidden rounded-2xl border-2 border-border transition-all group-hover:border-primary/40 group-hover:shadow-lg lg:h-48 lg:w-48">
+      <div className="relative mb-3 h-28 w-28 overflow-hidden rounded-2xl border-2 border-border transition-all group-hover:border-primary/40 group-hover:shadow-lg sm:mb-4 sm:h-36 sm:w-36 md:h-44 md:w-44 lg:h-48 lg:w-48">
         <Image
           src={member.image}
           alt={`Foto de ${member.name}`}
@@ -138,26 +138,26 @@ function TeamCard({ member }: { member: TeamMember }) {
           className="object-cover transition-transform group-hover:scale-105"
         />
       </div>
-      <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
-      <p className="mt-0.5 text-sm font-medium text-primary">{member.role}</p>
-      <div className="mt-3 flex items-center gap-3">
+      <h3 className="text-base font-bold text-foreground sm:text-lg">{member.name}</h3>
+      <p className="mt-0.5 text-xs font-medium text-primary sm:text-sm">{member.role}</p>
+      <div className="mt-2.5 flex items-center gap-2 sm:mt-3 sm:gap-3">
         <a
           href={member.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+          className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground sm:h-9 sm:w-9"
           aria-label={`GitHub de ${member.name}`}
         >
-          <Github className="h-4 w-4" />
+          <Github className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
         </a>
         <a
           href={member.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+          className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground sm:h-9 sm:w-9"
           aria-label={`LinkedIn de ${member.name}`}
         >
-          <Linkedin className="h-4 w-4" />
+          <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
         </a>
       </div>
     </div>
@@ -166,8 +166,8 @@ function TeamCard({ member }: { member: TeamMember }) {
 
 function ContributionCard({ member }: { member: TeamMember }) {
   return (
-    <div className="flex gap-5 rounded-2xl border border-border bg-card p-5 transition-all hover:border-primary/20 hover:shadow-md">
-      <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-xl">
+    <div className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-4 transition-all hover:border-primary/20 hover:shadow-md sm:flex-row sm:gap-5 sm:p-5">
+      <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-xl sm:h-14 sm:w-14">
         <Image
           src={member.image}
           alt={`Foto de ${member.name}`}
@@ -176,7 +176,7 @@ function ContributionCard({ member }: { member: TeamMember }) {
         />
       </div>
       <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <h4 className="font-semibold text-foreground">{member.name}</h4>
           <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
             {member.role}
@@ -185,19 +185,19 @@ function ContributionCard({ member }: { member: TeamMember }) {
         <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
           {member.description}
         </p>
-        <div className="mt-3 flex flex-wrap items-center gap-2">
+        <div className="mt-3 flex flex-wrap items-start gap-1.5 sm:gap-2">
           {member.focus.map((item) => (
             <span
               key={item}
-              className="inline-flex rounded-md bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
+              className="inline-flex rounded-md bg-secondary px-2 py-0.5 text-[11px] font-medium text-secondary-foreground sm:text-xs"
             >
               {item}
             </span>
           ))}
-          <span className="ml-auto hidden text-xs text-muted-foreground sm:inline-flex">
-            {member.stack}
-          </span>
         </div>
+        <p className="mt-2 text-[11px] text-muted-foreground sm:text-xs">
+          {member.stack}
+        </p>
       </div>
     </div>
   )
@@ -207,27 +207,30 @@ export function Team() {
   return (
     <>
       {/* Team overview section */}
-      <section id="team" className="bg-secondary/50 py-24 px-6">
+      <section id="team" className="bg-secondary/50 py-16 px-4 sm:py-24 sm:px-6">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">
               Equipo
             </p>
-            <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="mt-3 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
               Las personas detras de EduCloud
             </h2>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-3 text-pretty text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
               Un equipo de 7 personas construyendo desde cero la plataforma
               educativa que universidades y colegios necesitan.
             </p>
           </div>
 
-          <div className="mt-16 grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-4 justify-items-center">
+          {/* First row: 4 backend members */}
+          <div className="mt-12 grid grid-cols-2 gap-6 sm:mt-16 sm:gap-10 md:grid-cols-4">
             {team.slice(0, 4).map((member) => (
               <TeamCard key={member.name} member={member} />
             ))}
           </div>
-          <div className="mt-10 grid grid-cols-2 gap-10 sm:grid-cols-3 justify-items-center mx-auto max-w-3xl">
+
+          {/* Second row: 3 frontend members, centered */}
+          <div className="mt-8 grid grid-cols-2 gap-6 sm:mt-10 sm:gap-10 md:grid-cols-3 md:max-w-3xl md:mx-auto">
             {team.slice(4).map((member) => (
               <TeamCard key={member.name} member={member} />
             ))}
@@ -236,22 +239,22 @@ export function Team() {
       </section>
 
       {/* What each person works on */}
-      <section id="contributions" className="py-24 px-6">
+      <section id="contributions" className="py-16 px-4 sm:py-24 sm:px-6">
         <div className="mx-auto max-w-4xl">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">
               Contribuciones
             </p>
-            <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="mt-3 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
               En que se enfoca cada quien
             </h2>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-3 text-pretty text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
               Cada miembro del equipo lidera areas especificas del producto.
               Asi es como esta distribuido el trabajo.
             </p>
           </div>
 
-          <div className="mt-14 flex flex-col gap-4">
+          <div className="mt-10 flex flex-col gap-3 sm:mt-14 sm:gap-4">
             {team.map((member) => (
               <ContributionCard key={member.name} member={member} />
             ))}
