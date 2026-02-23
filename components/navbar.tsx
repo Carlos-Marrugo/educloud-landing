@@ -31,7 +31,7 @@ export function Navbar() {
             className="h-10 w-10 object-contain"
           />
           <span className="text-xl font-bold tracking-tight text-foreground">
-            Edu<span className="text-primary">Cloud</span>
+            Flu<span className="text-primary">edu</span>
           </span>
         </Link>
 
