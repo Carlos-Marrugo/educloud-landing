@@ -12,6 +12,9 @@ const LINKEDIN_URL = "https://www.linkedin.com/company/educloud-system/?viewAsMe
 const GITHUB_ORG_URL = "https://github.com/fluedu"
 const EMAIL = "elrprogramadortutoriales@gmail.com"
 
+// Web3Forms access key - get yours free at https://web3forms.com
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || ""
+
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -29,23 +32,43 @@ export function Contact() {
     setSubmitStatus("idle")
     setErrorMessage("")
 
+    // If no Web3Forms key, fallback to mailto
+    if (!WEB3FORMS_ACCESS_KEY) {
+      const subject = encodeURIComponent(`[Fluedu] Mensaje de ${formData.name}`)
+      const body = encodeURIComponent(
+        `Nombre: ${formData.name}\nCorreo: ${formData.email}\nColegio: ${formData.institution || "No especificado"}\n\nMensaje:\n${formData.message}`
+      )
+      window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`
+      setIsSubmitting(false)
+      return
+    }
+
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `[Fluedu] Nuevo mensaje de ${formData.name}`,
+          from_name: "Fluedu Contact Form",
+          name: formData.name,
+          email: formData.email,
+          institution: formData.institution || "No especificado",
+          message: formData.message,
+        }),
       })
 
       const data = await response.json()
 
-      if (!response.ok) {
-        throw new Error(data.error || "Error al enviar el mensaje")
+      if (data.success) {
+        setSubmitStatus("success")
+        setFormData({ name: "", email: "", institution: "", message: "" })
+      } else {
+        throw new Error(data.message || "Error al enviar el mensaje")
       }
-
-      setSubmitStatus("success")
-      setFormData({ name: "", email: "", institution: "", message: "" })
     } catch (error) {
       setSubmitStatus("error")
       setErrorMessage(error instanceof Error ? error.message : "Error al enviar el mensaje")
@@ -146,6 +169,7 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
+                    className="bg-background/50"
                   />
                 </div>
 
@@ -160,6 +184,7 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
+                    className="bg-background/50"
                   />
                 </div>
 
@@ -172,6 +197,7 @@ export function Contact() {
                     value={formData.institution}
                     onChange={handleChange}
                     disabled={isSubmitting}
+                    className="bg-background/50"
                   />
                 </div>
 
@@ -186,6 +212,7 @@ export function Contact() {
                     required
                     disabled={isSubmitting}
                     rows={4}
+                    className="bg-background/50 resize-none"
                   />
                 </div>
 
@@ -206,6 +233,12 @@ export function Contact() {
                     </>
                   )}
                 </Button>
+
+                {!WEB3FORMS_ACCESS_KEY && (
+                  <p className="text-xs text-muted-foreground text-center">
+                    Se abrira tu cliente de correo para enviar el mensaje
+                  </p>
+                )}
               </form>
             )}
           </motion.div>
