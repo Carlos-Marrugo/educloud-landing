@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
-import { Github, Linkedin } from "lucide-react"
+import { motion } from "framer-motion"
+import { Github, Linkedin, Quote } from "lucide-react"
 
 interface TeamMember {
   name: string
@@ -20,7 +23,7 @@ const team: TeamMember[] = [
     github: "#",
     linkedin: "#",
     description:
-      "Creador de EduCloud System. Impulsa la vision del producto, define la arquitectura general y coordina a todo el equipo. Ademas de liderar, contribuye directamente en el desarrollo de los servicios core de la plataforma.",
+      "Creador de Fluedu. Impulsa la vision del producto, define la arquitectura general y coordina a todo el equipo. Ademas de liderar, contribuye directamente en el desarrollo de los servicios core de la plataforma.",
     focus: [
       "Vision del producto",
       "Instituciones",
@@ -29,23 +32,6 @@ const team: TeamMember[] = [
       "Infraestructura",
     ],
     stack: "Spring Boot, JPA, PostgreSQL",
-  },
-  {
-    name: "Brayan",
-    role: "Backend Developer",
-    image: "/images/team/brayan.jpg",
-    github: "#",
-    linkedin: "#",
-    description:
-      "Especialista en servicios de integracion y operaciones. Construye los servicios que mantienen la plataforma conectada: desde la puerta de entrada al sistema hasta notificaciones, control de acceso y asistencia.",
-    focus: [
-      "API Gateway",
-      "Notificaciones",
-      "Control de acceso QR",
-      "Disciplina y convivencia",
-      "Asistencia",
-    ],
-    stack: "NestJS, TypeORM, PostgreSQL",
   },
   {
     name: "Sehuanes",
@@ -95,48 +81,39 @@ const team: TeamMember[] = [
     ],
     stack: "React, Next.js, TypeScript",
   },
-  {
-    name: "Andres Henao",
-    role: "Frontend Developer",
-    image: "/images/team/andres.jpg",
-    github: "#",
-    linkedin: "#",
-    description:
-      "Desarrollador frontend enfocado en construir las interfaces de la plataforma. Trabaja en los modulos de usuario, dashboards y las vistas academicas que conectan con los servicios del backend.",
-    focus: [
-      "Modulos de usuario",
-      "Dashboards",
-      "Vistas academicas",
-    ],
-    stack: "React, Next.js, TypeScript",
-  },
-  {
-    name: "Daimer",
-    role: "Frontend Developer",
-    image: "/images/team/daimer.jpg",
-    github: "#",
-    linkedin: "#",
-    description:
-      "Desarrollador frontend que trabaja en los flujos transaccionales y operativos: matriculas, pagos, notificaciones y las interfaces de gestion institucional.",
-    focus: [
-      "Flujos de matricula",
-      "Interfaz de pagos",
-      "Notificaciones UI",
-    ],
-    stack: "React, Next.js, TypeScript",
-  },
 ]
 
-function TeamCard({ member }: { member: TeamMember }) {
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+}
+
+function TeamCard({ member, index }: { member: TeamMember; index: number }) {
   return (
-    <div className="group flex flex-col items-center text-center">
-      <div className="relative mb-3 h-28 w-28 overflow-hidden rounded-2xl border-2 border-border transition-all group-hover:border-primary/40 group-hover:shadow-lg sm:mb-4 sm:h-36 sm:w-36 md:h-44 md:w-44 lg:h-48 lg:w-48">
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ y: -5 }}
+      transition={{ type: "spring", stiffness: 300 }}
+      className="group flex flex-col items-center text-center"
+    >
+      <div className="relative mb-3 h-32 w-32 overflow-hidden rounded-2xl border-2 border-border transition-all group-hover:border-primary/50 group-hover:shadow-lg group-hover:shadow-primary/10 sm:mb-4 sm:h-40 sm:w-40 md:h-48 md:w-48">
         <Image
           src={member.image}
           alt={`Foto de ${member.name}`}
           fill
-          className="object-cover transition-transform group-hover:scale-105"
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
       </div>
       <h3 className="text-base font-bold text-foreground sm:text-lg">{member.name}</h3>
       <p className="mt-0.5 text-xs font-medium text-primary sm:text-sm">{member.role}</p>
@@ -145,7 +122,7 @@ function TeamCard({ member }: { member: TeamMember }) {
           href={member.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground sm:h-9 sm:w-9"
+          className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-all hover:bg-primary hover:text-primary-foreground hover:scale-110 sm:h-9 sm:w-9"
           aria-label={`GitHub de ${member.name}`}
         >
           <Github className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
@@ -154,20 +131,25 @@ function TeamCard({ member }: { member: TeamMember }) {
           href={member.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground sm:h-9 sm:w-9"
+          className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-all hover:bg-primary hover:text-primary-foreground hover:scale-110 sm:h-9 sm:w-9"
           aria-label={`LinkedIn de ${member.name}`}
         >
           <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
         </a>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
 function ContributionCard({ member }: { member: TeamMember }) {
   return (
-    <div className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-4 transition-all hover:border-primary/20 hover:shadow-md sm:flex-row sm:gap-5 sm:p-5">
-      <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-xl sm:h-14 sm:w-14">
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300 }}
+      className="flex flex-col gap-4 rounded-2xl border border-border bg-card/50 p-4 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 sm:flex-row sm:gap-5 sm:p-5"
+    >
+      <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-xl sm:h-16 sm:w-16">
         <Image
           src={member.image}
           alt={`Foto de ${member.name}`}
@@ -178,7 +160,7 @@ function ContributionCard({ member }: { member: TeamMember }) {
       <div className="flex-1 min-w-0">
         <div className="flex flex-wrap items-center gap-2">
           <h4 className="font-semibold text-foreground">{member.name}</h4>
-          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
+          <span className="rounded-full bg-primary/10 border border-primary/20 px-2 py-0.5 text-[11px] font-medium text-primary">
             {member.role}
           </span>
         </div>
@@ -189,17 +171,17 @@ function ContributionCard({ member }: { member: TeamMember }) {
           {member.focus.map((item) => (
             <span
               key={item}
-              className="inline-flex rounded-md bg-secondary px-2 py-0.5 text-[11px] font-medium text-secondary-foreground sm:text-xs"
+              className="inline-flex rounded-md bg-secondary/50 border border-border px-2 py-0.5 text-[11px] font-medium text-muted-foreground sm:text-xs"
             >
               {item}
             </span>
           ))}
         </div>
-        <p className="mt-2 text-[11px] text-muted-foreground sm:text-xs">
+        <p className="mt-2 text-[11px] font-mono text-muted-foreground/70 sm:text-xs">
           {member.stack}
         </p>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
@@ -207,41 +189,84 @@ export function Team() {
   return (
     <>
       {/* Team overview section */}
-      <section id="team" className="bg-secondary/50 py-16 px-4 sm:py-24 sm:px-6">
+      <section id="team" className="py-16 px-4 sm:py-24 sm:px-6">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-2xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mx-auto max-w-2xl text-center"
+          >
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">
               Equipo
             </p>
             <h2 className="mt-3 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
-              Las personas detras de EduCloud
+              Las personas detras de Fluedu
             </h2>
             <p className="mt-3 text-pretty text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
-              Un equipo de 7 personas construyendo desde cero la plataforma
-              educativa que universidades y colegios necesitan.
+              Un equipo de 4 personas construyendo desde cero la plataforma
+              educativa que los colegios necesitan.
             </p>
-          </div>
+          </motion.div>
 
-          {/* First row: 4 backend members */}
-          <div className="mt-12 grid grid-cols-2 gap-6 sm:mt-16 sm:gap-10 md:grid-cols-4">
-            {team.slice(0, 4).map((member) => (
-              <TeamCard key={member.name} member={member} />
+          {/* Team grid - 4 members */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mt-12 grid grid-cols-2 gap-8 sm:mt-16 sm:gap-12 md:grid-cols-4"
+          >
+            {team.map((member, index) => (
+              <TeamCard key={member.name} member={member} index={index} />
             ))}
-          </div>
+          </motion.div>
 
-          {/* Second row: 3 frontend members, centered */}
-          <div className="mt-8 grid grid-cols-2 gap-6 sm:mt-10 sm:gap-10 md:grid-cols-3 md:max-w-3xl md:mx-auto">
-            {team.slice(4).map((member) => (
-              <TeamCard key={member.name} member={member} />
-            ))}
-          </div>
+          {/* Founder quote */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="mt-16 mx-auto max-w-3xl"
+          >
+            <div className="relative rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
+              <Quote className="absolute top-4 left-4 h-8 w-8 text-primary/20 sm:h-10 sm:w-10" />
+              <blockquote className="relative z-10 text-center">
+                <p className="text-pretty text-base leading-relaxed text-foreground sm:text-lg">
+                  {"Hoy estamos enfocados en transformar la gestion academica de los colegios, pero nuestra vision es mas grande. Estamos trabajando para conectar con universidades y expandir Fluedu a todo el ecosistema educativo de Latinoamerica."}
+                </p>
+                <footer className="mt-4 flex items-center justify-center gap-3">
+                  <div className="relative h-10 w-10 overflow-hidden rounded-full">
+                    <Image
+                      src="/images/team/carlos.jpg"
+                      alt="Carlos"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-sm font-semibold text-foreground">Carlos</p>
+                    <p className="text-xs text-muted-foreground">Founder & Product Lead</p>
+                  </div>
+                </footer>
+              </blockquote>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* What each person works on */}
-      <section id="contributions" className="py-16 px-4 sm:py-24 sm:px-6">
+      <section id="contributions" className="bg-card/50 py-16 px-4 sm:py-24 sm:px-6">
         <div className="mx-auto max-w-4xl">
-          <div className="mx-auto max-w-2xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mx-auto max-w-2xl text-center"
+          >
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">
               Contribuciones
             </p>
@@ -250,15 +275,20 @@ export function Team() {
             </h2>
             <p className="mt-3 text-pretty text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
               Cada miembro del equipo lidera areas especificas del producto.
-              Asi es como esta distribuido el trabajo.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="mt-10 flex flex-col gap-3 sm:mt-14 sm:gap-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mt-10 flex flex-col gap-3 sm:mt-14 sm:gap-4"
+          >
             {team.map((member) => (
               <ContributionCard key={member.name} member={member} />
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

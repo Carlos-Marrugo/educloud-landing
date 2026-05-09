@@ -10,10 +10,10 @@ const inter = Inter({
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'EduCloud | Plataforma Educativa en la Nube',
-  description: 'EduCloud es la plataforma SaaS que digitaliza la gestion academica de universidades y colegios. Matriculas, calificaciones, asistencia, aulas virtuales y mas.',
+  title: 'Fluedu | Gestion Educativa para Colegios',
+  description: 'Fluedu es la plataforma que digitaliza la gestion academica de colegios. Matriculas, calificaciones, asistencia, aulas virtuales y mas.',
   generator: 'v0.app',
-  keywords: ['educacion', 'SaaS', 'gestion academica', 'universidades', 'colegios', 'plataforma educativa', 'EduCloud'],
+  keywords: ['educacion', 'SaaS', 'gestion academica', 'colegios', 'plataforma educativa', 'Fluedu'],
   icons: {
     icon: [
       {
@@ -34,7 +34,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#4361ee',
+  themeColor: '#0f172a',
+  colorScheme: 'dark',
   width: 'device-width',
   initialScale: 1,
 }
@@ -45,8 +46,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es">
-      <body className={`${inter.variable} font-sans antialiased`}>
+    <html lang="es" className="dark">
+      <body className={`${inter.variable} font-sans antialiased bg-background`}>
         {children}
         <Analytics />
       </body>
