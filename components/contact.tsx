@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, MessageCircle, Rocket, Github } from "lucide-react"
+import { ArrowRight, MessageCircle, Rocket, Github, Mail } from "lucide-react"
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/educloud-system/?viewAsMember=true"
 const GITHUB_ORG_URL = "https://github.com/fluedu"
+const EMAIL = "elrprogramadortutoriales@gmail.com"
 
 export function Contact() {
   return (
@@ -57,7 +58,21 @@ export function Contact() {
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
+            <Button size="lg" variant="outline" className="w-full sm:w-auto group" asChild>
+              <a href={`mailto:${EMAIL}`}>
+                <Mail className="mr-2 h-4 w-4" />
+                Envianos un correo
+              </a>
+            </Button>
           </div>
+
+          {/* Email display */}
+          <p className="mt-4 text-sm text-muted-foreground">
+            O escríbenos directamente a{" "}
+            <a href={`mailto:${EMAIL}`} className="text-primary hover:underline font-medium">
+              {EMAIL}
+            </a>
+          </p>
 
           {/* Developer CTA */}
           <div className="mt-6 pt-6 border-t border-border">
