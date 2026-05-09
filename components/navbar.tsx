@@ -30,11 +30,11 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5">
           <Image
-            src="/images/logo.png"
+            src="/images/logo-fluedu.png"
             alt="Fluedu logo"
             width={40}
             height={40}
-            className="h-10 w-10 object-contain"
+            className="h-10 w-10 rounded-full object-cover"
           />
           <span className="text-xl font-bold tracking-tight text-foreground">
             Flu<span className="text-primary">edu</span>

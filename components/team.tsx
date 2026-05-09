@@ -45,7 +45,7 @@ const team: TeamMember[] = [
     name: "Naiker Gomez",
     role: "Frontend Lead",
     image: "/images/team/naiker.jpg",
-    github: "https://github.com/Naiker-gomeez",
+    github: "https://github.com/NaikerGomez",
     linkedin: "https://www.linkedin.com/in/naiker-gomez-caraballo-a97449293/",
   },
 ]
